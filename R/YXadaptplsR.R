@@ -18,7 +18,7 @@
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
 #' \email{frederic.bertrand@@utt.fr}\cr
-#' \url{http://github.fbertran.io/homepage/}
+#' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
 #' J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2016), in The Multiple Facets of Partial Least Squares and Related Methods, 
@@ -30,11 +30,11 @@
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' \doi{10.3389/fams.2021.693126}
+#' accepted.
 #' 
 #' @examples
 #' set.seed(314)
-#' ncol=10
+#' ncol=5
 #' xran=matrix(rnorm(30*ncol),30,ncol)
 #' coefs.plsR.adapt.ncomp(xran,sample(1:30))
 #' \donttest{

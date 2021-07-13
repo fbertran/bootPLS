@@ -10,7 +10,7 @@
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
 #' \email{frederic.bertrand@@utt.fr}\cr
-#' \url{http://github.fbertran.io/homepage/}
+#' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
 #' J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2016), in The Multiple Facets of Partial Least Squares and Related Methods, 
@@ -22,7 +22,7 @@
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' \doi{10.3389/fams.2021.693126}
+#' accepted.
 #' 
 #' @examples
 #' set.seed(314)
@@ -48,7 +48,7 @@ coefs.plsR.CSim <- function(dataset,i)
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
 #' \email{frederic.bertrand@@utt.fr}\cr
-#' \url{http://github.fbertran.io/homepage/}
+#' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
 #' J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2016), in The Multiple Facets of Partial Least Squares and Related Methods, 
@@ -60,7 +60,7 @@ coefs.plsR.CSim <- function(dataset,i)
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' \doi{10.3389/fams.2021.693126}
+#' accepted.
 #' 
 #' @examples
 #' set.seed(314)
@@ -99,7 +99,7 @@ permcoefs.plsR.CSim <- function(dataset,i)
 #' 
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
 #' \email{frederic.bertrand@@utt.fr}\cr
-#' \url{http://github.fbertran.io/homepage/}
+#' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
 #' J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2016), in The Multiple Facets of Partial Least Squares and Related Methods, 
@@ -111,7 +111,7 @@ permcoefs.plsR.CSim <- function(dataset,i)
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' \doi{10.3389/fams.2021.693126}
+#' accepted.
 #'
 #' @examples
 #' set.seed(314)
@@ -168,7 +168,7 @@ coefs.plsRglm.CSim<-function (dataRepYtt, ind, nt, modele, family = NULL, maxcoe
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
 #' \email{frederic.bertrand@@utt.fr}\cr
-#' \url{http://github.fbertran.io/homepage/}
+#' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
 #' J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2016), in The Multiple Facets of Partial Least Squares and Related Methods, 
@@ -180,7 +180,7 @@ coefs.plsRglm.CSim<-function (dataRepYtt, ind, nt, modele, family = NULL, maxcoe
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' \doi{10.3389/fams.2021.693126}
+#' accepted.
 #' 
 #' @examples
 #' set.seed(314)

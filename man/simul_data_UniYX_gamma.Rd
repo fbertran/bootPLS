@@ -75,7 +75,7 @@ J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics a
 
 New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-\doi{10.3389/fams.2021.693126}
+accepted.
 }
 \seealso{
 \code{\link[plsRglm]{simul_data_UniYX}}
@@ -87,7 +87,7 @@ Jeremy Magnanensi, Frédéric Bertrand\cr
 
 Jérémy Magnanensi, Frédéric Bertrand\cr
 \email{frederic.bertrand@utt.fr}\cr
-\url{http://github.fbertran.io/homepage/}
+\url{https://fbertran.github.io/homepage/}
 }
 \keyword{datagen}
 \keyword{utilities}
