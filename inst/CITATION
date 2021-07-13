@@ -1,0 +1,46 @@
+citHeader("To cite the plsRcox package in publications use:")
+
+titl <- meta$Title
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
+vers <- paste("R package version", meta$Version)
+
+citEntry(entry="Manual",
+         title = titl,
+         author = personList(as.person("F. Bertrand"), 
+                             as.person("M. Maumy-Bertrand")),
+	 publisher = "manual",
+         year         = year,
+         note         = vers,
+         url          = "https://fbertran.github.io/bootPLS/",
+         textVersion = 
+         paste("Frederic Bertrand and Myriam Maumy-Bertrand (",year ,"). ", 
+               titl, ", ", vers, ".", sep=""
+               )
+)
+
+citEntry(entry="Article",
+         title = "A new bootstrap-based stopping criterion in PLS component construction",
+         author = personList(as.person("J. Magnanensi"), as.person("M. Maumy-Bertrand"), as.person("N. Meyer"), as.person("F. Bertrand")),
+         year         = 2016,
+         journal = "The Multiple Facets of Partial Least Squares and Related Methods",
+         textVersion =
+         paste("J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2016).", "A new bootstrap-based stopping criterion in PLS component construction", "The Multiple Facets of Partial Least Squares and Related Methods,", "doi:10.1007/978-3-319-40643-5_18." )
+)
+
+citEntry(entry="Article",
+         title = "A new universal resample-stable bootstrap-based stopping criterion for PLS component construction",
+         author = personList(as.person("J. Magnanensi"), as.person("M. Maumy-Bertrand"), as.person("N. Meyer"), as.person("F. Bertrand")),
+         year         = 2017,
+         journal = "Statistics and Compututing",
+         textVersion =
+         paste("J. Magnanensi, M. Maumy-Bertrand, F. Bertrand and N. Meyer (2017).", "A new universal resample-stable bootstrap-based stopping criterion for PLS component construction", "Statistics and Compututing,", ", 27, 757–774. doi:10.1007/s11222-016-9651-4." )
+)
+
+citEntry(entry="Article",
+         title = "New developments in Sparse PLS regression",
+         author = personList(as.person("J. Magnanensi"), as.person("M. Maumy-Bertrand"), as.person("N. Meyer"), as.person("F. Bertrand")),
+         year         = 2021,
+         journal = "Frontiers in Applied Mathematics and Statistics",
+         textVersion =
+         paste("J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2021).", "New developments in Sparse PLS regression", "Frontiers in Applied Mathematics and Statistics,", "doi:10.3389/fams.2021.693126." )
+)

@@ -1,0 +1,207 @@
+---
+title: "Selecting the number of components"
+shorttitle: "bootPLS core functions"
+author: 
+- name: "Frédéric Bertrand and Myriam Maumy-Bertrand"
+  affiliation: 
+  - IRMA, labex IRMIA, Université de Strasbourg and CNRS. LIST3N, Université de technologie de Troyes.
+  email: frederic.bertrand@utt.fr
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+vignette: >
+  %\VignetteIndexEntry{Selecting the number of components}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+#file.edit(normalizePath("~/.Renviron"))
+LOCAL <- identical(Sys.getenv("LOCAL"), "TRUE")
+#LOCAL=TRUE
+knitr::opts_chunk$set(purl = LOCAL)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Overview
+This vignette is a short tutorial on the use of the core functions of the `bootPLS` package. 
+
+These functions can also be used to reproduce the simulations and the figures of the book chapter Magnanensi et al. (2016) and of the two articles  <doi:10.1007/978-3-319-40643-5_18>, Magnanensi et al. (2017) <doi:10.1007/s11222-016-9651-4> and 
+Magnanensi et al. (2021) <doi:10.3389/fams.2021.693126>.
+
+
+# Pine real dataset: pls and spls regressions
+## Loading and displaying dataset
+Load and display the pinewood worm dataset.
+```{r pine}
+library(bootPLS)
+library(plsRglm)
+data(pine, package = "plsRglm")
+Xpine<-pine[,1:10]
+ypine<-log(pine[,11])
+```
+
+```{r pinedisplay, cache=FALSE, eval=LOCAL}
+pairs(pine)
+```
+
+Michel Tenenhaus' reported in his book, *La régression PLS* (1998) Technip, Paris, that most of the expert biologists claimed that this dataset features two latent variables, which is tantamount to the PLS model having two components.
+
+## PLS LOO and CV
+Leave one out CV (`K=nrow(pine)`) one time (`NK=1`).
+```{r pinecv, cache=FALSE, eval=LOCAL}
+bbb <- plsRglm::cv.plsR(log(x11)~.,data=pine,nt=6,K=nrow(pine),NK=1,verbose=FALSE)
+plsRglm::cvtable(summary(bbb))
+```
+
+Set up 6-fold CV (`K=6`), 100 times (`NK=2`), and use `random=TRUE` to randomly create folds for repeated CV.
+```{r pinecvrep, cache=FALSE, eval=LOCAL}
+bbb2 <- plsRglm::cv.plsR(log(x11)~.,data=pine,nt=6,K=6,NK=100,verbose=FALSE)
+```
+
+Display the results of the cross-validation. 
+```{r pinecvtable, cache=FALSE, eval=LOCAL}
+plsRglm::cvtable(summary(bbb2))
+```
+
+The $Q^2$ criterion is recommended in that PLSR setting without missing data. A model with 1 component is selected by the cross-validation as displayed by the following figure. Hence the $Q^2$ criterion (1 component) does not agree with the experts (2 components). 
+
+```{r pineplotcvtableQ2, cache=FALSE, eval=LOCAL}
+plot(plsRglm::cvtable(summary(bbb2)),type="CVQ2")
+```
+
+As for the CV Press criterion it is unable to point out a unique number of components.
+```{r pineplotcvtablePress, cache=FALSE, eval=LOCAL}
+plot(plsRglm::cvtable(summary(bbb2)),type="CVPress")
+```
+
+## PLS (Y,T) Bootstrap
+
+The package features our bootstrap based algorithm to select the number of components in plsR regression. It is implemented with the `nbcomp.bootplsR` function.
+ 
+```{r nbcompbootplsR, cache=FALSE, eval=LOCAL}
+set.seed(4619)
+nbcomp.bootplsR(Y=ypine,X=Xpine,R =500)
+```
+
+The `verbose=FALSE` option  suppresses messages output during the algorithm, which is useful to replicate the bootstrap technique. To set up parallel computing, you can use the `parallel` and the `ncpus` options.
+```{r, resbootrep, cache=FALSE, eval=LOCAL}
+set.seed(4619)
+res_boot_rep <- replicate(20,nbcomp.bootplsR(Y=ypine,X=Xpine,R =500,verbose =FALSE,parallel = "multicore",ncpus = 2))
+```
+
+It is easy to display the results with the `barplot` function.
+```{r barplotresbootrep, cache=FALSE, eval=LOCAL}
+barplot(table(res_boot_rep))
+```
+
+A model with two components should be selected using our bootstrap based algorithm to select the number of components. Hence the number of component selected with our algorithm agrees with what was stated by the experts.
+
+
+## sPLS (Y,T) Bootstrap
+
+The package also features our bootstrap based algorithm to select, for a given $\eta$ value, the number of components in spls regression. It is implemented with the `nbcomp.bootspls` function.
+```{r nbcompbootspls, cache=FALSE, eval=LOCAL}
+nbcomp.bootspls(x=Xpine,y=ypine,eta=.5)
+```
+
+A `doParallel` and `foreach` based parallel computing version of the algorithm is implemented as the `nbcomp.bootspls.para` function.
+```{r spls, cache=FALSE, eval=LOCAL}
+nbcomp.bootspls.para(x=Xpine,y=ypine,eta=.5)
+nbcomp.bootspls.para(x=Xpine,y=ypine,eta=c(.2,.5))
+```
+
+## Bootstrap (Y,X) for the coefficients with number of components updated for each resampling
+
+Pinewood worm data reloaded.
+```{r pinereload, cache=FALSE, eval=LOCAL}
+library(bootPLS)
+library(plsRglm)
+data(pine, package = "plsRglm")
+Xpine<-pine[,1:10]
+ypine<-log(pine[,11])
+datasetpine <- cbind(ypine,Xpine)
+```
+
+
+```{r pineadaptyx, cache=FALSE, eval=LOCAL}
+coefs.plsR.adapt.ncomp(datasetpine,sample(1:nrow(datasetpine)))
+```
+Replicate the results to get the bootstrap distributions of the selected number of components and the coefficients.
+```{r pineadaptyxreplicate, cache=FALSE, eval=LOCAL}
+replicate(20,coefs.plsR.adapt.ncomp(datasetpine,sample(1:nrow(datasetpine))))
+```
+
+Parallel computing support with the `ncpus` and `parallel="multicore"` options.
+```{r pineadaptmc, cache=FALSE, eval=LOCAL}
+coefs.plsR.adapt.ncomp(datasetpine,sample(1:nrow(datasetpine)),ncpus=2,parallel="multicore")
+```
+
+```{r pineadaptmcreplicate, cache=FALSE, eval=LOCAL}
+replicate(20,coefs.plsR.adapt.ncomp(datasetpine,sample(1:nrow(datasetpine)),ncpus=2,parallel="multicore"))
+```
+
+# Aze real dataset: binary logistic plsRglm and sgpls regressions
+
+## PLSGLR (Y,T) Bootstrap
+
+Loading the data and creating the data frames.
+```{r azeload, cache=FALSE, eval=LOCAL}
+data(aze_compl)
+Xaze_compl<-aze_compl[,2:34]
+yaze_compl<-aze_compl$y
+dataset <- cbind(y=yaze_compl,Xaze_compl)
+```
+
+Fitting a logistic PLS regression model with 10 components. You have to use the family option when fitting the plsRglm.
+```{r azefit, cache=FALSE, eval=LOCAL}
+modplsglm <- plsRglm(y~.,data=dataset,10,modele="pls-glm-family",family="binomial")
+```
+Perform the bootstrap based algorithm with the `nbcomp.bootplsRglm` function. By default 250 resamplings are carried out.
+```{r azebootcomp, cache=FALSE, eval=LOCAL}
+set.seed(4619)
+aze_compl.bootYT <- suppressWarnings(nbcomp.bootplsRglm(modplsglm))
+```
+
+Plotting the bootstrap distributions of the coefficients of the components.
+```{r azeplotbootcomp, cache=FALSE, eval=LOCAL}
+plsRglm::boxplots.bootpls(aze_compl.bootYT)
+```
+
+Computing the bootstrap based confidence intervals of the coefficients of the components.
+
+```{r azebootcompCI, cache=FALSE, eval=LOCAL}
+plsRglm::confints.bootpls(aze_compl.bootYT)
+```
+
+Computing the bootstrap based confidence intervals of the coefficients of the components.
+
+```{r azebootcompplotCI, cache=FALSE, eval=LOCAL}
+suppressWarnings(plsRglm::plots.confints.bootpls(plsRglm::confints.bootpls(aze_compl.bootYT)))
+```
+
+## sparse PLSGLR (Y,T) Bootstrap
+
+The package also features our bootstrap based algorithm to select, for a given $\eta$ value, the number of components in sgpls regression. It is implemented in the `nbcomp.bootsgpls`.
+
+```{r prostateload, cache=FALSE, eval=LOCAL}
+set.seed(4619)
+data(prostate, package="spls")
+nbcomp.bootsgpls((prostate$x)[,1:30], prostate$y, R=250, eta=0.2, typeBCa = FALSE)
+```
+A `doParallel` and `foreach` based parallel computing version of the algorithm is implemented as the `nbcomp.bootspls.para` function.
+```{r prostatespls, cache=FALSE, eval=LOCAL}
+nbcomp.bootsgpls.para((prostate$x)[,1:30], prostate$y, R=250, eta=c(.2,.5), maxnt=10, typeBCa = FALSE)
+```
+
+
+
+```{r clean, cache=FALSE, eval=LOCAL}
+rm(list=c("Xpine","ypine","bbb","bbb2","aze_compl","Xaze_compl","yaze_compl","aze_compl.bootYT","dataset","modplsglm","pine","datasetpine","prostate","res_boot_rep"))
+```
+
