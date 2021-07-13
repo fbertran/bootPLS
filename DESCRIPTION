@@ -3,13 +3,14 @@ Version: 0.9.9
 Date: 2021-07-13
 Depends: R (>= 3.5.0)
 biocViews:
-Imports: boot, doParallel, foreach, plsRglm, pls, spls, bipartite, mvtnorm, plsdof
+Imports: boot, doParallel, foreach, plsRglm, pls, spls, bipartite, mvtnorm
 Enhances: 
 Suggests: 
     knitr,
     markdown,
-    rmarkdown,
-    prettydoc
+    plsdof,
+    prettydoc,
+    rmarkdown
 Title: Using Bootstrap to Find Hyperparameters for Partial Least Squares Regression Models and their Extensions
 Authors@R: c(
 	person(given = "Frederic", family= "Bertrand", role = c("cre", "aut"), email = "frederic.bertrand@utt.fr", comment = c(ORCID = "0000-0002-0837-8281")),
