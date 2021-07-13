@@ -31,8 +31,8 @@ knitr::opts_chunk$set(
 # Overview
 This vignette is a short tutorial on the use of the core functions of the `bootPLS` package. 
 
-These functions can also be used to reproduce the simulations and the figures of the book chapter Magnanensi et al. (2016) and of the two articles  <doi:10.1007/978-3-319-40643-5_18>, Magnanensi et al. (2017) <doi:10.1007/s11222-016-9651-4> and 
-Magnanensi et al. (2021) <doi:10.3389/fams.2021.693126>.
+These functions can also be used to reproduce the simulations and the figures of the book chapter Magnanensi et al. (2016) and of the two articles  <https://doi.org/10.1007/978-3-319-40643-5_18>, Magnanensi et al. (2017) <https://doi.org/10.1007/s11222-016-9651-4> and 
+Magnanensi et al. (2021), accepted.
 
 
 # Pine real dataset: pls and spls regressions

@@ -28,7 +28,7 @@
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
 #' \email{frederic.bertrand@@utt.fr}\cr
-#' \url{http://github.fbertran.io/homepage/}
+#' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
 #' J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2016), in The Multiple Facets of Partial Least Squares and Related Methods, 
@@ -40,7 +40,7 @@
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' \doi{10.3389/fams.2021.693126}
+#' accepted.
 #' 
 #' @examples
 #' set.seed(314)
@@ -174,7 +174,7 @@ nbcomp.bootspls=function (x, y, fold = 10, eta, R=500, kappa = 0.5, select = "pl
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
 #' \email{frederic.bertrand@@utt.fr}\cr
-#' \url{http://github.fbertran.io/homepage/}
+#' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
 #' J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2016), in The Multiple Facets of Partial Least Squares and Related Methods, 
@@ -186,14 +186,14 @@ nbcomp.bootspls=function (x, y, fold = 10, eta, R=500, kappa = 0.5, select = "pl
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' \doi{10.3389/fams.2021.693126}
+#' accepted.
 #' 
 #' @examples
 #' set.seed(314)
 #' data(pine, package = "plsRglm")
 #' Xpine<-pine[,1:10]
 #' ypine<-log(pine[,11])
-#' nbcomp.bootspls.para(x=Xpine,y=ypine,eta=c(.2,.5))
+#' nbcomp.bootspls.para(x=Xpine,y=ypine,eta=.2)
 nbcomp.bootspls.para=function (x, y, fold = 10, eta, R=500, kappa = 0.5, 
                          select = "pls2", fit = "simpls", scale.x = TRUE, 
                          scale.y = FALSE, plot.it = TRUE, typeBCa = TRUE, 

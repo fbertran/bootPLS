@@ -33,7 +33,7 @@
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
 #' \email{frederic.bertrand@@utt.fr}\cr
-#' \url{http://github.fbertran.io/homepage/}
+#' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
 #' J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2016), in The Multiple Facets of Partial Least Squares and Related Methods, 
@@ -45,7 +45,7 @@
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' \doi{10.3389/fams.2021.693126}
+#' accepted.
 #' 
 #' @examples
 #' data(pine, package="plsRglm")
@@ -53,9 +53,11 @@
 #' ypine<-log(pine[,11])
 #' res <- nbcomp.bootplsR(ypine, Xpine)
 #' nbcomp.bootplsR(ypine, Xpine, typeBCa=FALSE)
+#' \donttest{
 #' nbcomp.bootplsR(ypine, Xpine, typeBCa=FALSE, verbose=FALSE)
 #' try(nbcomp.bootplsR(ypine, Xpine, sim="permutation"))
 #' nbcomp.bootplsR(ypine, Xpine, sim="permutation", typeBCa=FALSE)
+#' }
 #' 
 nbcomp.bootplsR<-function(Y,X,R=500,sim="ordinary",ncpus=1,parallel="no",typeBCa=TRUE, verbose=TRUE){
   indboot2=1

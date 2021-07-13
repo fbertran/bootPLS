@@ -5,7 +5,7 @@
 \alias{bootPLS-package}
 \title{bootPLS-package}
 \description{
-: Several implementations of non-parametric stable bootstrap-based techniques to determine the numbers of components for Partial Least Squares linear or generalized linear regression models as well as and sparse Partial Least Squares linear or generalized linear regression models. The package collect techniques that were published in a book chapter (Magnanensi et al. 2016, 'The Multiple Facets of Partial Least Squares and Related Methods', <\doi{10.1007/978-3-319-40643-5_18}) and two articles (Magnanensi et al. 2017, 'Statistics and Computing', <\doi{10.1007/s11222-016-9651-4}) and (Magnanensi et al. 2021, 'Frontiers in Applied Mathematics and Statistics', \doi{10.3389/fams.2021.693126}).
+: Several implementations of non-parametric stable bootstrap-based techniques to determine the numbers of components for Partial Least Squares linear or generalized linear regression models as well as and sparse Partial Least Squares linear or generalized linear regression models. The package collect techniques that were published in a book chapter (Magnanensi et al. 2016, 'The Multiple Facets of Partial Least Squares and Related Methods', \doi{10.1007/978-3-319-40643-5_18}) and two articles (Magnanensi et al. 2017, 'Statistics and Computing', \doi{10.1007/s11222-016-9651-4}) and (Magnanensi et al. 2021, 'Frontiers in Applied Mathematics and Statistics', accepted.).
 }
 \examples{
 set.seed(314)
@@ -25,10 +25,10 @@ J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics a
 
 New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-\doi{10.3389/fams.2021.693126}
+accepted.
 }
 \author{
 Jérémy Magnanensi, Frédéric Bertrand\cr
 \email{frederic.bertrand@utt.fr}\cr
-\url{http://github.fbertran.io/homepage/}
+\url{https://fbertran.github.io/homepage/}
 }

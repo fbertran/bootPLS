@@ -68,7 +68,7 @@ set.seed(314)
 data(pine, package = "plsRglm")
 Xpine<-pine[,1:10]
 ypine<-log(pine[,11])
-nbcomp.bootspls.para(x=Xpine,y=ypine,eta=c(.2,.5))
+nbcomp.bootspls.para(x=Xpine,y=ypine,eta=.2)
 }
 \references{
 A new bootstrap-based stopping criterion in PLS component construction,
@@ -81,10 +81,10 @@ J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics a
 
 New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-\doi{10.3389/fams.2021.693126}
+accepted.
 }
 \author{
 Jérémy Magnanensi, Frédéric Bertrand\cr
 \email{frederic.bertrand@utt.fr}\cr
-\url{http://github.fbertran.io/homepage/}
+\url{https://fbertran.github.io/homepage/}
 }
