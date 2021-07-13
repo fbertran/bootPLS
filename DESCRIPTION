@@ -3,7 +3,7 @@ Version: 0.9.9
 Date: 2021-07-13
 Depends: R (>= 3.5.0)
 biocViews:
-Imports: boot, doParallel, foreach, plsRglm, pls, spls, bipartite, mvtnorm
+Imports: boot, doParallel, foreach, plsRglm, pls, spls, bipartite, mvtnorm, plsdof
 Enhances: 
 Suggests: 
     knitr,
