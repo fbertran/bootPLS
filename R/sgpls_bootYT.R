@@ -36,11 +36,8 @@
 #'
 #' @examples
 #' set.seed(4619)
-#' data(prostate, package="spls")
-#' resK=bootPLS:::sgpls.T(prostate$x, prostate$y, K = 3, eta = 0.6, 
-#' scale.x = FALSE, ftype = "iden")
-#' databoot=cbind(prostate$y,resK$tt)
-#' prostate.coefs<-coefs.sgpls.CSim(databoot, ind=sample(1:nrow(prostate$x)), 
+#' xran=cbind(rbinom(30,1,.2),matrix(rnorm(150),30,5))
+#' coefs.sgpls.CSim(xran, ind=sample(1:nrow(xran)), 
 #' maxcoefvalues=1e5, ifbootfail=rep(NA,3))
 #' 
 coefs.sgpls.CSim<-function (dataRepYtt, ind, nt, modele, family = binomial, maxcoefvalues,
@@ -98,12 +95,9 @@ coefs.sgpls.CSim<-function (dataRepYtt, ind, nt, modele, family = binomial, maxc
 #'
 #' @examples
 #' set.seed(4619)
-#' data(prostate, package="spls")
-#' resK=bootPLS:::sgpls.T(prostate$x, prostate$y, K = 3, eta = 0.6, 
-#' scale.x = FALSE, ftype = "iden")
-#' databoot=cbind(prostate$y,resK$tt)
-#' prostate.permcoefs<-permcoefs.sgpls.CSim(databoot, ind=sample(1:nrow(prostate$x)), 
-#' maxcoefvalues=1e5, ifbootfail=rep(NA,3))
+#' xran=cbind(rbinom(30,1,.2),matrix(rnorm(150),30,5))
+#' permcoefs.sgpls.CSim(xran, ind=sample(1:nrow(xran)), maxcoefvalues=1e5, 
+#' ifbootfail=rep(NA,3))
 #' 
 permcoefs.sgpls.CSim<-function (dataRepYtt, ind, nt, modele, family = binomial, maxcoefvalues,
                             ifbootfail)
@@ -264,9 +258,11 @@ nbcomp.bootsgpls=function (x, y, fold = 10, eta, R, scale.x = TRUE, maxnt=10, pl
   K.opt <- cands[, 4]
   eta.opt <- cands[, 3]
   if(verbose){cat(paste("\nOptimal parameters: eta = ", eta.opt, ", ", 
-                        sep = ""))
-    cat(paste("K = ", K.opt, "\n", sep = ""))}
+                        sep = ""))}
+  if(verbose){cat(paste("K = ", K.opt, "\n", sep = ""))}
   if (plot.it) {
+    oldpar <- par(no.readonly = TRUE)
+    on.exit(par(oldpar))
     par(mar=c(5,7,4,2))
     spls::heatmap.spls(t(mspemat), main = "CV error Plot", 
                        coln = 16, as = "n")
@@ -325,6 +321,8 @@ nbcomp.bootsgpls=function (x, y, fold = 10, eta, R, scale.x = TRUE, maxnt=10, pl
 #' data(prostate, package="spls")
 #' nbcomp.bootsgpls.para((prostate$x)[,1:30], prostate$y, R=250, eta=0.2, maxnt=1, typeBCa = FALSE)
 #' \donttest{
+#' set.seed(4619)
+#' data(prostate, package="spls")
 #' nbcomp.bootsgpls.para(prostate$x, prostate$y, R=250, eta=c(0.2,0.6), typeBCa = FALSE)
 #' }
 nbcomp.bootsgpls.para=function (x, y, fold = 10, eta, R, scale.x = TRUE, maxnt=10, 
@@ -424,9 +422,11 @@ nbcomp.bootsgpls.para=function (x, y, fold = 10, eta, R, scale.x = TRUE, maxnt=1
   K.opt <- cands[, 4]
   eta.opt <- cands[, 3]
   if(verbose){cat(paste("\nOptimal parameters: eta = ", eta.opt, ", ", 
-                        sep = ""))
-    cat(paste("K = ", K.opt, "\n", sep = ""))}
+                        sep = ""))}
+  if(verbose){cat(paste("K = ", K.opt, "\n", sep = ""))}
   if (plot.it) {
+    oldpar <- par(no.readonly = TRUE)
+    on.exit(par(oldpar))
     par(mar=c(5,7,4,2))
     spls::heatmap.spls(t(mspemat), main = "CV error Plot", 
                        coln = 16, as = "n")

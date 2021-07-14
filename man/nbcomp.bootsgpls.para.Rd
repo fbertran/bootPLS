@@ -68,6 +68,8 @@ set.seed(4619)
 data(prostate, package="spls")
 nbcomp.bootsgpls.para((prostate$x)[,1:30], prostate$y, R=250, eta=0.2, maxnt=1, typeBCa = FALSE)
 \donttest{
+set.seed(4619)
+data(prostate, package="spls")
 nbcomp.bootsgpls.para(prostate$x, prostate$y, R=250, eta=c(0.2,0.6), typeBCa = FALSE)
 }
 }

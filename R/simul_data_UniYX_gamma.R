@@ -91,8 +91,8 @@ simul_data_UniYX_gamma=function (totdim, ncomp, jvar, lvar, link = "inverse", of
   if (totdim == 2) {
     dimok <- TRUE
     if (!(ncomp %in% 1:totdim)) {
-      cat(paste("ncomp must be <= ", totdim, "\n"))
-      cat(paste("ncomp was set to ", totdim, "\n"))
+      warning(paste("ncomp must be <= ", totdim, "\n"))
+      warning(paste("ncomp was set to ", totdim, "\n"))
       ncomp <- totdim
     }
     ksi1 <- c(1, 1)/sqrt(2)
@@ -102,8 +102,8 @@ simul_data_UniYX_gamma=function (totdim, ncomp, jvar, lvar, link = "inverse", of
   if (totdim == 3) {
     dimok <- TRUE
     if (!(ncomp %in% 1:totdim)) {
-      cat(paste("ncomp must be <= ", totdim, "\n"))
-      cat(paste("ncomp was set to ", totdim, "\n"))
+      warning(paste("ncomp must be <= ", totdim, "\n"))
+      warning(paste("ncomp was set to ", totdim, "\n"))
       ncomp <- totdim
     }
     ksi1 <- c(1, 1, 1)/sqrt(3)
@@ -114,8 +114,8 @@ simul_data_UniYX_gamma=function (totdim, ncomp, jvar, lvar, link = "inverse", of
   if (totdim == 4) {
     dimok <- TRUE
     if (!(ncomp %in% 1:totdim)) {
-      cat(paste("ncomp must be <= ", totdim, "\n"))
-      cat(paste("ncomp was set to ", totdim, "\n"))
+      warning(paste("ncomp must be <= ", totdim, "\n"))
+      warning(paste("ncomp was set to ", totdim, "\n"))
       ncomp <- totdim
     }
     ksi1 <- c(1, 1, 1, 1)/2
@@ -127,8 +127,8 @@ simul_data_UniYX_gamma=function (totdim, ncomp, jvar, lvar, link = "inverse", of
   if (totdim == 5) {
     dimok <- TRUE
     if (!(ncomp %in% 1:totdim)) {
-      cat(paste("ncomp must be <= ", totdim, "\n"))
-      cat(paste("ncomp was set to ", totdim, "\n"))
+      warning(paste("ncomp must be <= ", totdim, "\n"))
+      warning(paste("ncomp was set to ", totdim, "\n"))
       ncomp <- totdim
     }
     ksi1 <- c(1, 1, 1, 1, 1)/sqrt(5)
@@ -142,8 +142,8 @@ simul_data_UniYX_gamma=function (totdim, ncomp, jvar, lvar, link = "inverse", of
   if ((totdim%%6 == 0) & (totdim >= 6)) {
     dimok <- TRUE
     if (!(ncomp %in% 1:6)) {
-      cat(paste("ncomp must be <= ", 6, "\n"))
-      cat(paste("ncomp was set to ", 6, "\n"))
+      warning(paste("ncomp must be <= ", 6, "\n"))
+      warning(paste("ncomp was set to ", 6, "\n"))
       ncomp <- 6
     }
     ksi1 <- rep(c(1, 1, 1, 1, 1, 1), totdim/6)/sqrt(totdim)
@@ -160,8 +160,8 @@ simul_data_UniYX_gamma=function (totdim, ncomp, jvar, lvar, link = "inverse", of
   if ((totdim%%6 == 1) & (totdim >= 6)) {
     dimok <- TRUE
     if (!(ncomp %in% 1:6)) {
-      cat(paste("ncomp must be <= ", 6, "\n"))
-      cat(paste("ncomp was set to ", 6, "\n"))
+      warning(paste("ncomp must be <= ", 6, "\n"))
+      warning(paste("ncomp was set to ", 6, "\n"))
       ncomp <- 6
     }
     ksi1 <- c(1, 1, 1, 1, 1, 1, 1, rep(c(1, 1, 1, 1, 1, 1),
@@ -187,8 +187,8 @@ simul_data_UniYX_gamma=function (totdim, ncomp, jvar, lvar, link = "inverse", of
   if ((totdim%%6 == 2) & (totdim >= 6)) {
     dimok <- TRUE
     if (!(ncomp %in% 1:6)) {
-      cat(paste("ncomp must be <= ", 6, "\n"))
-      cat(paste("ncomp was set to ", 6, "\n"))
+      warning(paste("ncomp must be <= ", 6, "\n"))
+      warning(paste("ncomp was set to ", 6, "\n"))
       ncomp <- 6
     }
     ksi1 <- c(1, 1, 1, 1, 1, 1, 1, 1, rep(c(1, 1, 1, 1, 1,
@@ -214,8 +214,8 @@ simul_data_UniYX_gamma=function (totdim, ncomp, jvar, lvar, link = "inverse", of
   if ((totdim%%6 == 3) & (totdim >= 6)) {
     dimok <- TRUE
     if (!(ncomp %in% 1:6)) {
-      cat(paste("ncomp must be <= ", 6, "\n"))
-      cat(paste("ncomp was set to ", 6, "\n"))
+      warning(paste("ncomp must be <= ", 6, "\n"))
+      warning(paste("ncomp was set to ", 6, "\n"))
       ncomp <- 6
     }
     ksi1 <- c(1, 1, 1, 1, 1, 1, 1, 1, 1, rep(c(1, 1, 1, 1,
@@ -241,8 +241,8 @@ simul_data_UniYX_gamma=function (totdim, ncomp, jvar, lvar, link = "inverse", of
   if ((totdim%%6 == 4) & (totdim >= 6)) {
     dimok <- TRUE
     if (!(ncomp %in% 1:6)) {
-      cat(paste("ncomp must be <= ", 6, "\n"))
-      cat(paste("ncomp was set to ", 6, "\n"))
+      warning(paste("ncomp must be <= ", 6, "\n"))
+      warning(paste("ncomp was set to ", 6, "\n"))
       ncomp <- 6
     }
     ksi1 <- c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, rep(c(1, 1, 1,
@@ -268,8 +268,8 @@ simul_data_UniYX_gamma=function (totdim, ncomp, jvar, lvar, link = "inverse", of
   if ((totdim%%6 == 5) & (totdim >= 6)) {
     dimok <- TRUE
     if (!(ncomp %in% 1:6)) {
-      cat(paste("ncomp must be <= ", 6, "\n"))
-      cat(paste("ncomp was set to ", 6, "\n"))
+      warning(paste("ncomp must be <= ", 6, "\n"))
+      warning(paste("ncomp was set to ", 6, "\n"))
       ncomp <- 6
     }
     ksi1 <- c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, rep(c(1, 1,

@@ -126,18 +126,18 @@ correctp=function (x, y, eta, K, kappa, select, fit)
     }
   }
   if (kappa > 0.5 | kappa < 0) {
-    cat("kappa should be between 0 and 0.5! kappa=0.5 is used. \n\n")
+    warning("kappa should be between 0 and 0.5! kappa=0.5 is used. \n\n")
     kappa <- 0.5
   }
   if (select != "pls2" & select != "simpls") {
-    cat("Invalid PLS algorithm for variable selection.\n")
-    cat("pls2 algorithm is used. \n\n")
+    warning("Invalid PLS algorithm for variable selection.\n")
+    warning("pls2 algorithm is used. \n\n")
     select <- "pls2"
   }
   fits <- c("simpls", "kernelpls", "widekernelpls", "oscorespls")
   if (!any(fit == fits)) {
-    cat("Invalid PLS algorithm for model fitting\n")
-    cat("simpls algorithm is used. \n\n")
+    warning("Invalid PLS algorithm for model fitting\n")
+    warning("simpls algorithm is used. \n\n")
     fit <- "simpls"
   }
   list(K = K, eta = eta, kappa = kappa, select = select, fit = fit)
@@ -157,18 +157,18 @@ correctp.withoutK=function (x, y, eta, kappa, select, fit)
     }
   }
   if (kappa > 0.5 | kappa < 0) {
-    cat("kappa should be between 0 and 0.5! kappa=0.5 is used. \n\n")
+    warning("kappa should be between 0 and 0.5! kappa=0.5 is used. \n\n")
     kappa <- 0.5
   }
   if (select != "pls2" & select != "simpls") {
-    cat("Invalid PLS algorithm for variable selection.\n")
-    cat("pls2 algorithm is used. \n\n")
+    warning("Invalid PLS algorithm for variable selection.\n")
+    warning("pls2 algorithm is used. \n\n")
     select <- "pls2"
   }
   fits <- c("simpls", "kernelpls", "widekernelpls", "oscorespls")
   if (!any(fit == fits)) {
-    cat("Invalid PLS algorithm for model fitting\n")
-    cat("simpls algorithm is used. \n\n")
+    warning("Invalid PLS algorithm for model fitting\n")
+    warning("simpls algorithm is used. \n\n")
     fit <- "simpls"
   }
   list(eta = eta, kappa = kappa, select = select, fit = fit)
@@ -176,7 +176,7 @@ correctp.withoutK=function (x, y, eta, kappa, select, fit)
 
 spls.Cboot=function (x, y, K, eta, kappa = 0.5, select = "pls2", fit = "simpls", 
                      scale.x = TRUE, scale.y = FALSE, eps = 1e-04, maxstep = 100, 
-                     trace = FALSE) 
+                     verbose = FALSE) 
 {
   x <- as.matrix(x)
   n <- nrow(x)
@@ -226,9 +226,7 @@ spls.Cboot=function (x, y, K, eta, kappa = 0.5, select = "pls2", fit = "simpls",
     xnames <- colnames(x)
   }
   new2As <- list()
-  if (trace) {
-    cat("The variables that join the set of selected variables at each step:\n")
-  }
+  if (verbose) {cat("The variables that join the set of selected variables at each step:\n")}
   for (k in 1:K) {
     Z <- t(x1) %*% y1
     what <- spls.dv(Z, eta, kappa, eps, maxstep)
@@ -251,7 +249,7 @@ spls.Cboot=function (x, y, K, eta, kappa = 0.5, select = "pls2", fit = "simpls",
         pw
     }
     new2As[[k]] <- new2A
-    if (trace) {
+    if (verbose) {
       if (length(new2A) <= 10) {
         cat(paste("- ", k, "th step (K=", k, "):\n", 
                   sep = ""))

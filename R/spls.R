@@ -6,6 +6,7 @@
 #' @param fold Number of fold for cross-validation
 #' @param eta Thresholding parameter. eta should be between 0 and 1.
 #' @param R Number of resamplings.
+#' @param maxnt Maximum number of components allowed in a spls model.
 #' @param kappa Parameter to control the effect of the concavity of the 
 #' objective function and the closeness of original and surrogate 
 #' direction vectors. kappa is relevant only when responses are multivariate. 
@@ -47,10 +48,18 @@
 #' data(pine, package = "plsRglm")
 #' Xpine<-pine[,1:10]
 #' ypine<-log(pine[,11])
-#' nbcomp.bootspls(x=Xpine,y=ypine,eta=.2)
-nbcomp.bootspls=function (x, y, fold = 10, eta, R=500, kappa = 0.5, select = "pls2", 
-                   fit = "simpls", scale.x = TRUE, scale.y = FALSE, 
-                   plot.it = TRUE, typeBCa = TRUE, verbose=TRUE) 
+#' nbcomp.bootspls(x=Xpine,y=ypine,eta=.2, maxnt=1)
+#' \donttest{
+#' set.seed(314)
+#' data(pine, package = "plsRglm")
+#' Xpine<-pine[,1:10]
+#' ypine<-log(pine[,11])
+#' nbcomp.bootspls.para(x=Xpine,y=ypine,eta=c(.2,.6))
+#' }
+nbcomp.bootspls=function (x, y, fold = 10, eta, R=500, maxnt=10, kappa = 0.5, 
+                   select = "pls2", fit = "simpls", scale.x = TRUE, 
+                   scale.y = FALSE, plot.it = TRUE, typeBCa = TRUE, 
+                   verbose=TRUE) 
 {
   x <- as.matrix(x)
   n <- nrow(x)
@@ -75,18 +84,18 @@ nbcomp.bootspls=function (x, y, fold = 10, eta, R=500, kappa = 0.5, select = "pl
     if(verbose){print(indK)}
     resK=spls.Cboot(x, y, eta = eta[i], kappa = kappa, 
                     K = indK, select = select, fit = fit, scale.x = scale.x, 
-                    scale.y = scale.y, trace = FALSE)
+                    scale.y = scale.y, verbose = FALSE)
     compTsim=resK$tt
     databoot=cbind(scale(y,scale=F),compTsim)
     bootcomp<-boot::boot(data=databoot, statistic=coefs.plsR.CSim, sim="ordinary", stype="i", R=R)
     confYT=t(as.matrix(plsRglm::confints.bootpls(bootcomp, typeBCa = typeBCa)))
     
-    while (confYT[1,ncolBoot]>0) {
+    while ((confYT[1,ncolBoot]>0) & (indK<maxnt+1)) {
       indK=indK+1
       if(verbose){print(indK)}
       resK<-spls.Cboot(x, y, eta = eta[i], kappa = kappa, 
                        K = indK, select = select, fit = fit, scale.x = scale.x, 
-                       scale.y = scale.y, trace = FALSE)
+                       scale.y = scale.y, verbose = FALSE)
       ind=1
       compTsim=resK$tt[,ind]
       databoot=cbind(scale(y,scale=F),compTsim)
@@ -132,9 +141,11 @@ nbcomp.bootspls=function (x, y, fold = 10, eta, R=500, kappa = 0.5, select = "pl
   eta.opt <- max(eta[mspemat == minpmse])
   K.opt <- K.opti[eta == max(eta[mspemat == minpmse])]
   if(verbose){cat(paste("\nOptimal parameters: eta = ", eta.opt, ", ", 
-            sep = ""))
-  cat(paste("K = ", K.opt, "\n", sep = ""))}
+            sep = ""))}
+  if(verbose){cat(paste("K = ", K.opt, "\n", sep = ""))}
   if (plot.it) {
+    oldpar <- par(no.readonly = TRUE)
+    on.exit(par(oldpar))
     par(mar=c(5,7,4,2))
     spls::heatmap.spls(t(mspemat), main = "CV MSPE Plot", 
                        coln = 16, as = "n")
@@ -152,6 +163,7 @@ nbcomp.bootspls=function (x, y, fold = 10, eta, R=500, kappa = 0.5, select = "pl
 #' @param fold Number of fold for cross-validation
 #' @param eta Thresholding parameter. eta should be between 0 and 1.
 #' @param R Number of resamplings.
+#' @param maxnt Maximum number of components allowed in a spls model.
 #' @param kappa Parameter to control the effect of the concavity of the 
 #' objective function and the closeness of original and surrogate 
 #' direction vectors. kappa is relevant only when responses are multivariate. 
@@ -193,8 +205,15 @@ nbcomp.bootspls=function (x, y, fold = 10, eta, R=500, kappa = 0.5, select = "pl
 #' data(pine, package = "plsRglm")
 #' Xpine<-pine[,1:10]
 #' ypine<-log(pine[,11])
-#' nbcomp.bootspls.para(x=Xpine,y=ypine,eta=.2)
-nbcomp.bootspls.para=function (x, y, fold = 10, eta, R=500, kappa = 0.5, 
+#' nbcomp.bootspls.para(x=Xpine,y=ypine,eta=.2, maxnt=1)
+#' \donttest{
+#' set.seed(314)
+#' data(pine, package = "plsRglm")
+#' Xpine<-pine[,1:10]
+#' ypine<-log(pine[,11])
+#' nbcomp.bootspls.para(x=Xpine,y=ypine,eta=c(.2,.6))
+#' }
+nbcomp.bootspls.para=function (x, y, fold = 10, eta, R=500, maxnt=10, kappa = 0.5, 
                          select = "pls2", fit = "simpls", scale.x = TRUE, 
                          scale.y = FALSE, plot.it = TRUE, typeBCa = TRUE, 
                          ncpus=1, verbose=TRUE) 
@@ -219,26 +238,26 @@ nbcomp.bootspls.para=function (x, y, fold = 10, eta, R=500, kappa = 0.5,
   requireNamespace("foreach",quietly = TRUE)
   par.K.opti=foreach::foreach(lll=1:length(eta), .combine="cbind", 
                               .export=c("x","y", "eta", "kappa", "select", 
-                                        "fit", "scale.x", "scale.y")) %dopar% {
+                                        "fit", "scale.x", "scale.y", "maxnt")) %dopar% {
     if(verbose){print(paste("eta =", eta[lll]))}
     ### Finding the number of components
     inter=0
     indK=1
-    #print(indK)
+    #if(verbose){print(indK)}
     resK=spls.Cboot(x, y, eta = eta[lll], kappa = kappa, 
                     K = indK, select = select, fit = fit, scale.x = scale.x, 
-                    scale.y = scale.y, trace = FALSE)
+                    scale.y = scale.y, verbose = FALSE)
     compTsim=resK$tt
     databoot=cbind(scale(y,scale=F),compTsim)
     bootcomp<-boot::boot(data=databoot, statistic=coefs.plsR.CSim, sim="ordinary", stype="i", R=R)
     confYT=t(as.matrix(plsRglm::confints.bootpls(bootcomp, typeBCa = typeBCa)))
     
-    while (confYT[1,ncolBoot]>0) {
+    while ((confYT[1,ncolBoot]>0) & (indK<maxnt+1)) {
       indK=indK+1
       if(verbose){print(indK)}
       resK<-spls.Cboot(x, y, eta = eta[lll], kappa = kappa, 
                        K = indK, select = select, fit = fit, scale.x = scale.x, 
-                       scale.y = scale.y, trace = FALSE)
+                       scale.y = scale.y, verbose = FALSE)
       ind=1
       compTsim=resK$tt[,ind]
       databoot=cbind(scale(y,scale=F),compTsim)
@@ -287,9 +306,11 @@ nbcomp.bootspls.para=function (x, y, fold = 10, eta, R=500, kappa = 0.5,
   eta.opt <- max(eta[mspemat == minpmse])
   K.opt <- K.opti[eta == max(eta[mspemat == minpmse])]
   if(verbose){cat(paste("\nOptimal parameters: eta = ", eta.opt, ", ", 
-            sep = ""))
-  cat(paste("K = ", K.opt, "\n", sep = ""))}
+            sep = ""))}
+  if(verbose){cat(paste("K = ", K.opt, "\n", sep = ""))}
   if (plot.it) {
+    oldpar <- par(no.readonly = TRUE)
+    on.exit(par(oldpar))
     par(mar=c(5,7,4,2))
     spls::heatmap.spls(t(mspemat), main = "CV MSPE Plot", 
                        coln = 16, as = "n")

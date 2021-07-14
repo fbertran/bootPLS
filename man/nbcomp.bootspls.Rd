@@ -10,6 +10,7 @@ nbcomp.bootspls(
   fold = 10,
   eta,
   R = 500,
+  maxnt = 10,
   kappa = 0.5,
   select = "pls2",
   fit = "simpls",
@@ -30,6 +31,8 @@ nbcomp.bootspls(
 \item{eta}{Thresholding parameter. eta should be between 0 and 1.}
 
 \item{R}{Number of resamplings.}
+
+\item{maxnt}{Maximum number of components allowed in a spls model.}
 
 \item{kappa}{Parameter to control the effect of the concavity of the 
 objective function and the closeness of original and surrogate 
@@ -65,7 +68,14 @@ set.seed(314)
 data(pine, package = "plsRglm")
 Xpine<-pine[,1:10]
 ypine<-log(pine[,11])
-nbcomp.bootspls(x=Xpine,y=ypine,eta=.2)
+nbcomp.bootspls(x=Xpine,y=ypine,eta=.2, maxnt=1)
+\donttest{
+set.seed(314)
+data(pine, package = "plsRglm")
+Xpine<-pine[,1:10]
+ypine<-log(pine[,11])
+nbcomp.bootspls.para(x=Xpine,y=ypine,eta=c(.2,.6))
+}
 }
 \references{
 A new bootstrap-based stopping criterion in PLS component construction,

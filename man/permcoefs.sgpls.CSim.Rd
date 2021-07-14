@@ -42,12 +42,9 @@ Permutation Bootstrap (Y,T) function for plsRglm
 }
 \examples{
 set.seed(4619)
-data(prostate, package="spls")
-resK=bootPLS:::sgpls.T(prostate$x, prostate$y, K = 3, eta = 0.6, 
-scale.x = FALSE, ftype = "iden")
-databoot=cbind(prostate$y,resK$tt)
-prostate.permcoefs<-permcoefs.sgpls.CSim(databoot, ind=sample(1:nrow(prostate$x)), 
-maxcoefvalues=1e5, ifbootfail=rep(NA,3))
+xran=cbind(rbinom(30,1,.2),matrix(rnorm(150),30,5))
+permcoefs.sgpls.CSim(xran, ind=sample(1:nrow(xran)), maxcoefvalues=1e5, 
+ifbootfail=rep(NA,3))
 
 }
 \references{

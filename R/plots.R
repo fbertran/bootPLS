@@ -51,8 +51,9 @@ signpred2 <- function(matbin, pred.lablength = max(sapply(rownames(matbin),
   lettersize = strwidth(s, units = "inches")
   clratio = cellsize/lettersize
   mm <- max(m.colsize, m.rowsize)
-  op <- par(las = 3, mar = c(2, 2, 1, 1) + 0.1, mgp = c(2, 1, 0))
-  on.exit(par(op))
+  oldpar <- par(no.readonly = TRUE)
+  on.exit(par(oldpar))
+  par(las = 3, mar = c(2, 2, 1, 1) + 0.1, mgp = c(2, 1, 0))
   bipartite::visweb(t(matbin), type = "None", labsize = labsize, 
                     square = "defined", def.col = c("white","grey25","green"), 
                     prednames = TRUE, clear = FALSE)
