@@ -31,9 +31,9 @@ citEntry(entry="Article",
          title = "A new universal resample-stable bootstrap-based stopping criterion for PLS component construction",
          author = personList(as.person("J. Magnanensi"), as.person("M. Maumy-Bertrand"), as.person("N. Meyer"), as.person("F. Bertrand")),
          year         = 2017,
-         journal = "Statistics and Compututing",
+         journal = "Statistics and Computing",
          textVersion =
-         paste("J. Magnanensi, M. Maumy-Bertrand, F. Bertrand and N. Meyer (2017).", "A new universal resample-stable bootstrap-based stopping criterion for PLS component construction", "Statistics and Compututing,", ", 27, 757–774. doi:10.1007/s11222-016-9651-4." )
+         paste("J. Magnanensi, M. Maumy-Bertrand, F. Bertrand and N. Meyer (2017).", "A new universal resample-stable bootstrap-based stopping criterion for PLS component construction", "Statistics and Computing,", ", 27, 757–774. doi:10.1007/s11222-016-9651-4." )
 )
 
 citEntry(entry="Article",

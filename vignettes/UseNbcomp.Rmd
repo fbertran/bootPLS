@@ -1,6 +1,7 @@
 ---
 title: "Selecting the number of components"
-shorttitle: "bootPLS core functions"
+subtitle: "bootPLS core functions"
+shorttitle: "Selecting the number of components"
 author: 
 - name: "Frédéric Bertrand and Myriam Maumy-Bertrand"
   affiliation: 

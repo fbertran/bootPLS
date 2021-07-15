@@ -17,7 +17,7 @@
 #' \doi{10.1007/978-3-319-40643-5_18}\cr
 #' 
 #' A new universal resample-stable bootstrap-based stopping criterion for PLS component construction,
-#' J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics and Compututing, 27, 757–774. 
+#' J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics and Computing, 27, 757–774. 
 #' \doi{10.1007/s11222-016-9651-4}\cr
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
@@ -55,7 +55,7 @@ coefs.plsR.CSim <- function(dataset,i)
 #' \doi{10.1007/978-3-319-40643-5_18}\cr
 #' 
 #' A new universal resample-stable bootstrap-based stopping criterion for PLS component construction,
-#' J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics and Compututing, 27, 757–774. 
+#' J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics and Computing, 27, 757–774. 
 #' \doi{10.1007/s11222-016-9651-4}\cr
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
@@ -106,7 +106,7 @@ permcoefs.plsR.CSim <- function(dataset,i)
 #' \doi{10.1007/978-3-319-40643-5_18}\cr
 #' 
 #' A new universal resample-stable bootstrap-based stopping criterion for PLS component construction,
-#' J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics and Compututing, 27, 757–774. 
+#' J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics and Computing, 27, 757–774. 
 #' \doi{10.1007/s11222-016-9651-4}\cr
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
@@ -175,7 +175,7 @@ coefs.plsRglm.CSim<-function (dataRepYtt, ind, nt, modele, family = NULL, maxcoe
 #' \doi{10.1007/978-3-319-40643-5_18}\cr
 #' 
 #' A new universal resample-stable bootstrap-based stopping criterion for PLS component construction,
-#' J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics and Compututing, 27, 757–774. 
+#' J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics and Computing, 27, 757–774. 
 #' \doi{10.1007/s11222-016-9651-4}\cr
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 

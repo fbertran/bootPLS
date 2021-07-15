@@ -240,7 +240,7 @@ J. Magnanensi, M. Maumy-Bertrand, N. Meyer and F. Bertrand (2016), in The Multip
 doi: <a href='https://doi.org/10.1007/978-3-319-40643-5_18'>10.1007/978-3-319-40643-5_18</a>
 <br /></p>
 <p>A new universal resample-stable bootstrap-based stopping criterion for PLS component construction,
-J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics and Compututing, 27, 757–774. 
+J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics and Computing, 27, 757–774. 
 doi: <a href='https://doi.org/10.1007/s11222-016-9651-4'>10.1007/s11222-016-9651-4</a>
 <br /></p>
 <p>New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
@@ -259,7 +259,18 @@ accepted.</p>
 <span class='va'>ypine</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>pine</span><span class='op'>[</span>,<span class='fl'>11</span><span class='op'>]</span><span class='op'>)</span>
 <span class='fu'>nbcomp.bootspls.para</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>Xpine</span>,y<span class='op'>=</span><span class='va'>ypine</span>,eta<span class='op'>=</span><span class='fl'>.2</span>, maxnt<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "eta = 0.2"
-#&gt; [1] 2</div><div class='output co'>#&gt; <span class='error'>Error in {    if (verbose) {        print(paste("eta =", eta[lll]))    }    inter = 0    indK = 1    resK = spls.Cboot(x, y, eta = eta[lll], kappa = kappa, K = indK,         select = select, fit = fit, scale.x = scale.x, scale.y = scale.y,         verbose = FALSE)    compTsim = resK$tt    databoot = cbind(scale(y, scale = F), compTsim)    bootcomp &lt;- boot::boot(data = databoot, statistic = coefs.plsR.CSim,         sim = "ordinary", stype = "i", R = R)    confYT = t(as.matrix(plsRglm::confints.bootpls(bootcomp,         typeBCa = typeBCa)))    while ((confYT[1, ncolBoot] &gt; 0) &amp; (indK &lt; maxnt + 1)) {        indK = indK + 1        if (verbose) {            print(indK)        }        resK &lt;- spls.Cboot(x, y, eta = eta[lll], kappa = kappa,             K = indK, select = select, fit = fit, scale.x = scale.x,             scale.y = scale.y, verbose = FALSE)        ind = 1        compTsim = resK$tt[, ind]        databoot = cbind(scale(y, scale = F), compTsim)        bootcomp &lt;- boot::boot(data = databoot, statistic = coefs.plsR.CSim,             sim = "ordinary", stype = "i", R = R)        confC = t(as.matrix(plsRglm::confints.bootpls(bootcomp,             typeBCa = typeBCa)))        while ((confC[1, ncolBoot] &gt; 0) &amp;&amp; (ind &lt; indK)) {            ind = ind + 1            compTsim = resK$tt[, 1:ind]            databoot = cbind(scale(y, scale = F), compTsim)            bootcomp &lt;- boot::boot(data = databoot, statistic = coefs.plsR.CSim,                 sim = "ordinary", stype = "i", R = R)            confC = t(as.matrix(plsRglm::confints.bootpls(bootcomp,                 typeBCa = typeBCa)))        }        if (ind != indK) {            confYT = matrix(0, 1, ncolBoot + 1)        }        else {            confYT = confC        }    }    mspemati &lt;- matrix(0, fold, 1)    for (j in 1:fold) {        omit &lt;- foldi[[j]]        object &lt;- spls::spls(x[-omit, , drop = FALSE], y[-omit,             , drop = FALSE], eta = eta[lll], kappa = kappa, K = indK -             1, select = select, fit = fit, scale.x = scale.x,             scale.y = scale.y, verbose = FALSE)        newx &lt;- x[omit, , drop = FALSE]        newx &lt;- scale(newx, object$meanx, object$normx)        betamat &lt;- object$betamat        pred &lt;- newx %*% betamat[[indK - 1]] + matrix(1, nrow(newx),             1) %*% object$mu        mspemati[j, ] &lt;- mean(apply((y[omit, ] - pred)^2, 2,             mean))    }    c(indK - 1, apply(mspemati, 2, mean))}: task 1 failed - "argument inutilisé (verbose = FALSE)"</span></div><div class='input'><span class='co'># \donttest{</span>
+#&gt; [1] 2
+#&gt; 
+#&gt; Optimal parameters: eta = 0.2, K = 1</div><div class='img'><img src='nbcomp.bootspls.para-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $mspemat
+#&gt;                         
+#&gt; eta= 0.2 ; K= 1 1.090242
+#&gt; 
+#&gt; $eta.opt
+#&gt; [1] 0.2
+#&gt; 
+#&gt; $K.opt
+#&gt; [1] 1
+#&gt; </div><div class='input'><span class='co'># \donttest{</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>314</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>pine</span>, package <span class='op'>=</span> <span class='st'>"plsRglm"</span><span class='op'>)</span>
 <span class='va'>Xpine</span><span class='op'>&lt;-</span><span class='va'>pine</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>]</span>
@@ -270,7 +281,20 @@ accepted.</p>
 #&gt; [1] 3
 #&gt; [1] "eta = 0.6"
 #&gt; [1] 2
-#&gt; [1] 3</div><div class='output co'>#&gt; <span class='error'>Error in {    if (verbose) {        print(paste("eta =", eta[lll]))    }    inter = 0    indK = 1    resK = spls.Cboot(x, y, eta = eta[lll], kappa = kappa, K = indK,         select = select, fit = fit, scale.x = scale.x, scale.y = scale.y,         verbose = FALSE)    compTsim = resK$tt    databoot = cbind(scale(y, scale = F), compTsim)    bootcomp &lt;- boot::boot(data = databoot, statistic = coefs.plsR.CSim,         sim = "ordinary", stype = "i", R = R)    confYT = t(as.matrix(plsRglm::confints.bootpls(bootcomp,         typeBCa = typeBCa)))    while ((confYT[1, ncolBoot] &gt; 0) &amp; (indK &lt; maxnt + 1)) {        indK = indK + 1        if (verbose) {            print(indK)        }        resK &lt;- spls.Cboot(x, y, eta = eta[lll], kappa = kappa,             K = indK, select = select, fit = fit, scale.x = scale.x,             scale.y = scale.y, verbose = FALSE)        ind = 1        compTsim = resK$tt[, ind]        databoot = cbind(scale(y, scale = F), compTsim)        bootcomp &lt;- boot::boot(data = databoot, statistic = coefs.plsR.CSim,             sim = "ordinary", stype = "i", R = R)        confC = t(as.matrix(plsRglm::confints.bootpls(bootcomp,             typeBCa = typeBCa)))        while ((confC[1, ncolBoot] &gt; 0) &amp;&amp; (ind &lt; indK)) {            ind = ind + 1            compTsim = resK$tt[, 1:ind]            databoot = cbind(scale(y, scale = F), compTsim)            bootcomp &lt;- boot::boot(data = databoot, statistic = coefs.plsR.CSim,                 sim = "ordinary", stype = "i", R = R)            confC = t(as.matrix(plsRglm::confints.bootpls(bootcomp,                 typeBCa = typeBCa)))        }        if (ind != indK) {            confYT = matrix(0, 1, ncolBoot + 1)        }        else {            confYT = confC        }    }    mspemati &lt;- matrix(0, fold, 1)    for (j in 1:fold) {        omit &lt;- foldi[[j]]        object &lt;- spls::spls(x[-omit, , drop = FALSE], y[-omit,             , drop = FALSE], eta = eta[lll], kappa = kappa, K = indK -             1, select = select, fit = fit, scale.x = scale.x,             scale.y = scale.y, verbose = FALSE)        newx &lt;- x[omit, , drop = FALSE]        newx &lt;- scale(newx, object$meanx, object$normx)        betamat &lt;- object$betamat        pred &lt;- newx %*% betamat[[indK - 1]] + matrix(1, nrow(newx),             1) %*% object$mu        mspemati[j, ] &lt;- mean(apply((y[omit, ] - pred)^2, 2,             mean))    }    c(indK - 1, apply(mspemati, 2, mean))}: task 1 failed - "argument inutilisé (verbose = FALSE)"</span></div><div class='input'><span class='co'># }</span>
+#&gt; [1] 3
+#&gt; 
+#&gt; Optimal parameters: eta = 0.2, K = 2</div><div class='img'><img src='nbcomp.bootspls.para-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $mspemat
+#&gt;                         
+#&gt; eta= 0.2 ; K= 2 1.276262
+#&gt; eta= 0.6 ; K= 2 1.413876
+#&gt; 
+#&gt; $eta.opt
+#&gt; [1] 0.2
+#&gt; 
+#&gt; $K.opt
+#&gt; result.1 
+#&gt;        2 
+#&gt; </div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
