@@ -33,7 +33,8 @@ knitr::opts_chunk$set(
 This vignette is a short tutorial on the use of the core functions of the `bootPLS` package. 
 
 These functions can also be used to reproduce the simulations and the figures of the book chapter Magnanensi et al. (2016) and of the two articles  <https://doi.org/10.1007/978-3-319-40643-5_18>, Magnanensi et al. (2017) <https://doi.org/10.1007/s11222-016-9651-4> and 
-Magnanensi et al. (2021), accepted.
+Magnanensi et al. (2021) <https://doi.org/10.3389/fams.2021.693126>.
+
 
 
 # Pine real dataset: pls and spls regressions
@@ -60,7 +61,7 @@ bbb <- plsRglm::cv.plsR(log(x11)~.,data=pine,nt=6,K=nrow(pine),NK=1,verbose=FALS
 plsRglm::cvtable(summary(bbb))
 ```
 
-Set up 6-fold CV (`K=6`), 100 times (`NK=2`), and use `random=TRUE` to randomly create folds for repeated CV.
+Set up 6-fold CV (`K=6`), 100 times (`NK=100`), and use `random=TRUE` to randomly create folds for repeated CV.
 ```{r pinecvrep, cache=FALSE, eval=LOCAL}
 bbb2 <- plsRglm::cv.plsR(log(x11)~.,data=pine,nt=6,K=6,NK=100,verbose=FALSE)
 ```

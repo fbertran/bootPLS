@@ -1,14 +1,14 @@
 #' @title Bootstrap (Y,T) function for plsRglm
 #'
-#' A function passed to \code{boot} to perform bootstrap.
+#' @description A function passed to \code{boot} to perform bootstrap.
 #' 
 #' 
 #' @param dataRepYtt Dataset with tt components to resample
 #' @param ind indices for resampling
 #' @param nt number of components to use
-#' @param modele type of modele to use, see \link{plsRglm}. Not used, 
+#' @param modele type of modele to use, see \link[plsRglm]{plsRglm}. Not used, 
 #' please specify the family instead.
-#' @param family glm family to use, see \link{plsRglm}
+#' @param family glm family to use, see \link[plsRglm]{plsRglm}
 #' @param maxcoefvalues maximum values allowed for the estimates of the
 #' coefficients to discard those coming from singular bootstrap samples
 #' @param ifbootfail value to return if the estimation fails on a bootstrap
@@ -32,7 +32,7 @@
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' accepted.
+#' \doi{10.3389/fams.2021.693126}\cr.
 #'
 #' @examples
 #' set.seed(4619)
@@ -65,9 +65,9 @@ coefs.sgpls.CSim<-function (dataRepYtt, ind, nt, modele, family = binomial, maxc
 #' @param dataRepYtt Dataset with tt components to resample
 #' @param ind indices for resampling
 #' @param nt number of components to use
-#' @param modele type of modele to use, see \link{plsRglm}. Not used, 
+#' @param modele type of modele to use, see \link[plsRglm]{plsRglm}. Not used, 
 #' please specify the family instead.
-#' @param family glm family to use, see \link{plsRglm}
+#' @param family glm family to use, see \link[plsRglm]{plsRglm}
 #' @param maxcoefvalues maximum values allowed for the estimates of the
 #' coefficients to discard those coming from singular bootstrap samples
 #' @param ifbootfail value to return if the estimation fails on a bootstrap
@@ -91,7 +91,7 @@ coefs.sgpls.CSim<-function (dataRepYtt, ind, nt, modele, family = binomial, maxc
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' accepted.
+#' \doi{10.3389/fams.2021.693126}\cr.
 #'
 #' @examples
 #' set.seed(4619)
@@ -158,7 +158,7 @@ permcoefs.sgpls.CSim<-function (dataRepYtt, ind, nt, modele, family = binomial, 
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' accepted.
+#' \doi{10.3389/fams.2021.693126}\cr.
 #' 
 #' @examples
 #' set.seed(4619)
@@ -314,7 +314,7 @@ nbcomp.bootsgpls=function (x, y, fold = 10, eta, R, scale.x = TRUE, maxnt=10, pl
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' accepted.
+#' \doi{10.3389/fams.2021.693126}\cr.
 #' 
 #' @examples
 #' set.seed(4619)

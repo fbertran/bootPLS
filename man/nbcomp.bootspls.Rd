@@ -88,7 +88,7 @@ J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics a
 
 New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-accepted.
+\doi{10.3389/fams.2021.693126}\cr.
 }
 \author{
 Jérémy Magnanensi, Frédéric Bertrand\cr

@@ -1,3 +1,11 @@
+# bootPLS 1.0.1
+
+* Fixes to pass CRAN checks
+
+# bootPLS 1.0.0
+
+* Added doi for second article on bootstrap and SPLS hyperparameters selection.
+
 # bootPLS 0.9.9 
 
 * Fixes to pass CRAN checks

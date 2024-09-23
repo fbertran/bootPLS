@@ -41,7 +41,7 @@ multiple determinants of the structure of plant-animal mutualistic networks.
 \emph{Ecology}, 90:2039-2046.
 }
 \seealso{
-See Also \code{\link{visweb}}
+See Also \code{\link[bipartite]{visweb}}
 }
 \author{
 Bernd Gruber with minor modifications from

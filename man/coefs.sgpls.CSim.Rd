@@ -2,9 +2,7 @@
 % Please edit documentation in R/sgpls_bootYT.R
 \name{coefs.sgpls.CSim}
 \alias{coefs.sgpls.CSim}
-\title{Bootstrap (Y,T) function for plsRglm
-
-A function passed to \code{boot} to perform bootstrap.}
+\title{Bootstrap (Y,T) function for plsRglm}
 \usage{
 coefs.sgpls.CSim(
   dataRepYtt,
@@ -23,10 +21,10 @@ coefs.sgpls.CSim(
 
 \item{nt}{number of components to use}
 
-\item{modele}{type of modele to use, see \link{plsRglm}. Not used, 
+\item{modele}{type of modele to use, see \link[plsRglm]{plsRglm}. Not used, 
 please specify the family instead.}
 
-\item{family}{glm family to use, see \link{plsRglm}}
+\item{family}{glm family to use, see \link[plsRglm]{plsRglm}}
 
 \item{maxcoefvalues}{maximum values allowed for the estimates of the
 coefficients to discard those coming from singular bootstrap samples}
@@ -40,8 +38,6 @@ resampling or \code{ifbootfail} value if the
 bootstrap computation fails.
 }
 \description{
-Bootstrap (Y,T) function for plsRglm
-
 A function passed to \code{boot} to perform bootstrap.
 }
 \examples{
@@ -62,7 +58,7 @@ J. Magnanensi, F. Bertrand, M. Maumy-Bertrand and N. Meyer, (2017), Statistics a
 
 New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-accepted.
+\doi{10.3389/fams.2021.693126}\cr.
 }
 \author{
 Jérémy Magnanensi, Frédéric Bertrand\cr

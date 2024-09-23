@@ -19,7 +19,7 @@
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' accepted.
+#' \doi{10.3389/fams.2021.693126}\cr.
 #' 
 #' @keywords internal
 NULL

@@ -15,7 +15,7 @@
 #' Frédéric Bertrand\cr
 #' \email{frederic.bertrand@@math.unistra.fr}\cr
 #' \url{https://fbertran.github.io/homepage/}
-#' @seealso See Also \code{\link{visweb}}
+#' @seealso See Also \code{\link[bipartite]{visweb}}
 #' @references Vazquez, P.D., Chacoff, N.,P. and Cagnolo, L. (2009) Evaluating
 #' multiple determinants of the structure of plant-animal mutualistic networks.
 #' \emph{Ecology}, 90:2039-2046.

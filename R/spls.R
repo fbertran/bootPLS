@@ -41,7 +41,7 @@
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' accepted.
+#' \doi{10.3389/fams.2021.693126}\cr.
 #' 
 #' @examples
 #' set.seed(314)
@@ -198,7 +198,7 @@ nbcomp.bootspls=function (x, y, fold = 10, eta, R=500, maxnt=10, kappa = 0.5,
 #' 
 #' New developments in Sparse PLS regression, J. Magnanensi, M. Maumy-Bertrand, 
 #' N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistics, 
-#' accepted.
+#' \doi{10.3389/fams.2021.693126}\cr.
 #' 
 #' @examples
 #' set.seed(314)
