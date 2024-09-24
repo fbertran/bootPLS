@@ -12,7 +12,7 @@
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-CMD-check](https://github.com/fbertran/bootPLS/workflows/R-CMD-check/badge.svg)](https://github.com/fbertran/bootPLS/actions)
-[![Codecov test coverage](https://codecov.io/gh/fbertran/bootPLS/branch/master/graph/badge.svg)](https://codecov.io/gh/fbertran/bootPLS?branch=master)
+[![Codecov test coverage](https://codecov.io/gh/fbertran/bootPLS/branch/master/graph/badge.svg)](https://app.codecov.io/gh/fbertran/bootPLS?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/bootPLS)](https://cran.r-project.org/package=bootPLS)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/bootPLS)](https://cran.r-project.org/package=bootPLS)
 [![GitHub Repo stars](https://img.shields.io/github/stars/fbertran/bootPLS?style=social)](https://github.com/fbertran/bootPLS)
