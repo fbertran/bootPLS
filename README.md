@@ -8,7 +8,10 @@
 
 ## Frédéric Bertrand, Jeremy Magnanensi and Myriam Maumy-Bertrand
 
+<https://doi.org/10.32614/CRAN.package.bootPLS>
+
 <!-- badges: start -->
+[![DOI](https://img.shields.io/badge/doi-10.32614/CRAN.package.bootPLS-blue.svg)](https://doi.org/10.32614/CRAN.package.bootPLS)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-CMD-check](https://github.com/fbertran/bootPLS/workflows/R-CMD-check/badge.svg)](https://github.com/fbertran/bootPLS/actions)
@@ -16,7 +19,6 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/bootPLS)](https://cran.r-project.org/package=bootPLS)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/bootPLS)](https://cran.r-project.org/package=bootPLS)
 [![GitHub Repo stars](https://img.shields.io/github/stars/fbertran/bootPLS?style=social)](https://github.com/fbertran/bootPLS)
-[![DOI](https://zenodo.org/badge/384205341.svg)](https://zenodo.org/badge/latestdoi/384205341)
 <!-- badges: end -->
 
 The goal of bootPLS is to provide several non-parametric stable bootstrap-based techniques to determine the numbers of components in Partial Least Squares and sparse Partial Least Squares linear or generalized linear regression.

@@ -103,6 +103,6 @@ N. Meyer and F. Bertrand, (2021), Frontiers in Applied Mathematics and Statistic
 }
 \author{
 Jérémy Magnanensi, Frédéric Bertrand\cr
-\email{frederic.bertrand@utt.fr}\cr
+\email{frederic.bertrand@lecnam.net}\cr
 \url{https://fbertran.github.io/homepage/}
 }

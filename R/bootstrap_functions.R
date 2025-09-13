@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@utt.fr}\cr
+#' \email{frederic.bertrand@@lecnam.net}\cr
 #' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
@@ -47,7 +47,7 @@ coefs.plsR.CSim <- function(dataset,i)
 #' @export
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@utt.fr}\cr
+#' \email{frederic.bertrand@@lecnam.net}\cr
 #' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
@@ -98,7 +98,7 @@ permcoefs.plsR.CSim <- function(dataset,i)
 #' @export
 #' 
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@utt.fr}\cr
+#' \email{frederic.bertrand@@lecnam.net}\cr
 #' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
@@ -167,7 +167,7 @@ coefs.plsRglm.CSim<-function (dataRepYtt, ind, nt, modele, family = NULL, maxcoe
 #' @export
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@utt.fr}\cr
+#' \email{frederic.bertrand@@lecnam.net}\cr
 #' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,

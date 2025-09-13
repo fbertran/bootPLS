@@ -28,7 +28,7 @@
 #' @export
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@utt.fr}\cr
+#' \email{frederic.bertrand@@lecnam.net}\cr
 #' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,
@@ -185,7 +185,7 @@ nbcomp.bootspls=function (x, y, fold = 10, eta, R=500, maxnt=10, kappa = 0.5,
 #' @export
 #'
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@utt.fr}\cr
+#' \email{frederic.bertrand@@lecnam.net}\cr
 #' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,

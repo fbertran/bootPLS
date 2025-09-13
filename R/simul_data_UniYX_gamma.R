@@ -20,7 +20,7 @@
 #' @param offset Offset on the linear scale
 #' @return \item{vector}{\eqn{(Ygamma,X_1,\ldots,X_{totdim})}}
 #' @author Jeremy Magnanensi, Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@utt.fr}\cr
+#' \email{frederic.bertrand@@lecnam.net}\cr
 #' \url{https://fbertran.github.io/homepage/}
 #' @seealso \code{\link[plsRglm]{simul_data_UniYX}}
 #' @references T. Naes, H. Martens, Comparison of prediction methods for
@@ -32,7 +32,7 @@
 #' @keywords datagen utilities
 #' 
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@utt.fr}\cr
+#' \email{frederic.bertrand@@lecnam.net}\cr
 #' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,

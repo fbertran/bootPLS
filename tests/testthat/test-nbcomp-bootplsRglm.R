@@ -1,0 +1,12 @@
+test_that("nbcomp.bootplsRglm returns a 'boot' object for a fitted plsRglm model", {
+  skip_on_cran()
+  skip_if_not_installed("plsRglm")
+  library(plsRglm)
+  set.seed(20240912)
+#  dataset <- data.frame(t(replicate(100,simul_data_UniYX_binom(20,6))))
+  modplsglm <- plsRglm::plsRglm(Ybin~.,data=data.frame(t(replicate(100,simul_data_UniYX_binom(20,4)))),2,modele="pls-glm-family", family = binomial, verbose=FALSE)
+  bobj <- suppressWarnings(nbcomp.bootplsRglm(modplsglm, R=250))
+  expect_true(inherits(bobj, "boot"))
+  expect_true(is.matrix(bobj$t) || is.vector(bobj$t))
+  expect_true(bobj$R >= 1)
+})

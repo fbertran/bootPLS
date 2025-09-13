@@ -6,7 +6,7 @@
 #' 
 #' @aliases ust spls.dv correctp correctp.withoutK spls.Cboot cv.split
 #' @author Jérémy Magnanensi, Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@utt.fr}\cr
+#' \email{frederic.bertrand@@lecnam.net}\cr
 #' \url{https://fbertran.github.io/homepage/}
 #' 
 #' @references A new bootstrap-based stopping criterion in PLS component construction,

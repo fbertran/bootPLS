@@ -1,3 +1,9 @@
+# bootPLS 1.1.0
+
+* Maintainer email update
+* Added unit tests
+* Added package doi
+
 # bootPLS 1.0.1
 
 * Fixes to pass CRAN checks
