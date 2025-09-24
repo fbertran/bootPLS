@@ -49,3 +49,4 @@ genlogo.R
 ^vignettes/.*_files$
 
 cran_submit_text.txt
+\.DS_Store$
